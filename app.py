@@ -15,7 +15,7 @@ def utils(suppress_st_warning=True):
      os.chdir("roop")
 
 # Install requirements
-     os.system("pip install -r requirements.txt")
+     os.system("pip install -r requirements-headless.txt")
 
 # Download the model file
      os.system("wget https://civitai.com/api/download/models/85159 -O inswapper_128.onnx")
