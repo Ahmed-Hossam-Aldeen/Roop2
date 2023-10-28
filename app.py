@@ -12,7 +12,7 @@ def save_uploadedfile(uploadedfile):
 def utils(suppress_st_warning=True):
 # Clone the repository and navigate to the roop folder
      os.system("git clone https://github.com/based9based/roop")
-     os.chdir("roop")
+     #os.chdir("roop")
 
 # Install requirements
      #os.system("pip install -r requirements-headless.txt")
