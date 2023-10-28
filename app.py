@@ -18,7 +18,7 @@ def utils(suppress_st_warning=True):
      #os.system("pip install -r requirements-headless.txt")
 
 # Download the model file
-     os.system("wget https://civitai.com/api/download/models/85159 -O inswapper_128.onnx")
+     os.system("curl https://civitai.com/api/download/models/85159 -O inswapper_128.onnx")
 
 # Import required modules
 from PIL import Image
@@ -42,7 +42,7 @@ if source_image and target_video:
     target_path=source_image.name
     source_path=target_video.name
     # Run face swapping and enhancement
-    command = f"python run.py --target {target_path} --source {source_path} -o swapped.mp4 --execution-provider cuda --frame-processor face_swapper"
+    command = f"python roop/run.py --target {target_path} --source {source_path} -o swapped.mp4 --execution-provider cuda --frame-processor face_swapper"
     subprocess.run(command, shell=True)
     
     # Display processed video
