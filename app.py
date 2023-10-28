@@ -6,16 +6,19 @@ def save_uploadedfile(uploadedfile):
      with open(os.path.join("./",uploadedfile.name),"wb") as f:
          f.write(uploadedfile.getbuffer())
      return st.success(f"{uploadedfile.name} File Uploaded Successfully!")
-    
+
+
+@st.experimental_singleton
+def utils(suppress_st_warning=True):
 # Clone the repository and navigate to the roop folder
-os.system("git clone https://github.com/based9based/roop")
-os.chdir("roop")
+     os.system("git clone https://github.com/based9based/roop")
+     os.chdir("roop")
 
 # Install requirements
-os.system("pip install -r requirements.txt")
+     os.system("pip install -r requirements.txt")
 
 # Download the model file
-os.system("wget https://civitai.com/api/download/models/85159 -O inswapper_128.onnx")
+     os.system("wget https://civitai.com/api/download/models/85159 -O inswapper_128.onnx")
 
 # Import required modules
 from PIL import Image
@@ -24,7 +27,7 @@ import subprocess
 
 # Streamlit app header
 st.title("Face Swapper Streamlit App")
-
+utils()
 # Upload source and target images
 source_image = st.file_uploader("Upload source image (AS.jpg)", type=["jpg", "png"])
 target_video = st.file_uploader("Upload target video (NSF.mp4)", type=["mp4"])
