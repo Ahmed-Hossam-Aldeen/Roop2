@@ -38,7 +38,7 @@ if source_image and target_video:
     
     # Save uploaded files
     save_uploadedfile(source_image)
-    save_uploadedfile(target_image)
+    save_uploadedfile(target_video)
     target_path=source_image.name
     source_path=target_video.name
     # Run face swapping and enhancement
