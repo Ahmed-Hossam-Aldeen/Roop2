@@ -2,6 +2,11 @@
 import streamlit as st
 import os
 
+def save_uploadedfile(uploadedfile):
+     with open(os.path.join("./",uploadedfile.name),"wb") as f:
+         f.write(uploadedfile.getbuffer())
+     return st.success(f"{uploadedfile.name} File Uploaded Successfully!")
+    
 # Clone the repository and navigate to the roop folder
 os.system("git clone https://github.com/based9based/roop")
 os.chdir("roop")
@@ -29,10 +34,8 @@ if source_image and target_video:
     st.info("Processing... This may take a while.")
     
     # Save uploaded files
-    source_path = "source.jpg"
-    target_path = "target.mp4"
-    source_image.save(source_path)
-    target_video.save(target_path)
+    save_uploadedfile(source_image)
+    save_uploadedfile(target_image)
     
     # Run face swapping and enhancement
     command = f"python run.py --target {target_path} --source {source_path} -o swapped.mp4 --execution-provider cuda --frame-processor face_swapper"
