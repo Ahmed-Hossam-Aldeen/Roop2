@@ -39,7 +39,8 @@ if source_image and target_video:
     # Save uploaded files
     save_uploadedfile(source_image)
     save_uploadedfile(target_image)
-    
+    target_path=source_image.name
+    source_path=target_video.name
     # Run face swapping and enhancement
     command = f"python run.py --target {target_path} --source {source_path} -o swapped.mp4 --execution-provider cuda --frame-processor face_swapper"
     subprocess.run(command, shell=True)
